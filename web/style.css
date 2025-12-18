@@ -1,0 +1,227 @@
+:root {
+    --primary: #d63384;
+    --dark: #121212;
+    --gold: #c5a059;
+    --white: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+    font-family: 'Inter', sans-serif; 
+    background-color: var(--dark); 
+    color: var(--white); 
+    overflow-x: hidden; 
+}
+
+.hidden { display: none !important; }
+
+/* --- OPENING SCREEN --- */
+#opening { 
+    height: 100vh; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    background: radial-gradient(circle, #20010c, #000000); 
+}
+
+.gift-wrapper { text-align: center; }
+
+.gift-box { 
+    width: 100px; 
+    height: 85px; 
+    background: #b91d47; 
+    position: relative; 
+    cursor: pointer; 
+    border-radius: 4px; 
+    animation: float 3s infinite; 
+    margin: 0 auto; 
+}
+
+.gift-lid { 
+    width: 110px; 
+    height: 20px; 
+    background: #d63384; 
+    position: absolute; 
+    top: -15px; 
+    left: -5px; 
+    border-radius: 3px; 
+    z-index: 5; 
+}
+
+.ribbon-v { 
+    width: 15px; 
+    height: 100%; 
+    background: var(--gold); 
+    position: absolute; 
+    left: 50%; 
+    transform: translateX(-50%); 
+}
+
+.ribbon-h { 
+    width: 110px; 
+    height: 15px; 
+    background: var(--gold); 
+    position: absolute; 
+    top: -13px; 
+    left: -5px; 
+    z-index: 6; 
+}
+
+@keyframes float { 
+    0%, 100% { transform: translateY(0); } 
+    50% { transform: translateY(-15px); } 
+}
+
+/* --- MAIN PAGE --- */
+#mainPage { 
+    background: #fffafa; 
+    color: #333; 
+    min-height: 100vh; 
+    padding-bottom: 50px; 
+}
+
+.hero { text-align: center; padding: 60px 20px 20px; }
+
+h1 { 
+    font-family: 'Dancing Script', cursive; 
+    font-size: 3rem; 
+    color: var(--primary); 
+}
+
+.message-box { 
+    background: white; 
+    padding: 30px; 
+    border-radius: 15px; 
+    max-width: 90%; 
+    width: 500px; 
+    margin: 0 auto 40px; 
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05); 
+    text-align: center; 
+}
+
+/* --- COUNTDOWN CENTER --- */
+.countdown-wrapper { width: 100%; text-align: center; margin-bottom: 50px; }
+
+.countdown-label { 
+    font-size: 1.1rem; 
+    color: #555; 
+    margin-bottom: 20px; 
+    font-weight: 500; 
+}
+
+#countdown { display: flex; justify-content: center; gap: 10px; }
+
+.time-unit { 
+    background: var(--dark); 
+    color: white; 
+    padding: 12px 8px; 
+    border-radius: 12px; 
+    min-width: 65px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
+}
+
+.time-unit span { font-size: 1.4rem; font-weight: 600; display: block; }
+.time-unit p { font-size: 0.6rem; text-transform: uppercase; margin-top: 4px; opacity: 0.8; }
+
+/* --- GALERI TUMPUKAN FOTO (UPDATE) --- */
+.gallery-container { 
+    padding: 40px 15px; 
+    max-width: 1000px; 
+    margin: 0 auto 50px; 
+    text-align: center; 
+}
+
+.photo-stack {
+    position: relative;
+    width: 280px; 
+    height: 350px;
+    margin: 40px auto;
+}
+
+.photo-card { 
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: white; 
+    padding: 10px 10px 45px 10px; /* Efek Polaroid */
+    border-radius: 10px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s; 
+    cursor: pointer; 
+    user-select: none;
+}
+
+.photo-card img { 
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 5px; 
+}
+
+/* Rotasi acak halus */
+.photo-card:nth-child(even) { transform: rotate(3deg); }
+.photo-card:nth-child(odd) { transform: rotate(-3deg); }
+
+/* Animasi saat kartu diklik/dibuang */
+.photo-card.moving {
+    transform: translateX(150%) rotate(20deg) !important;
+    opacity: 0;
+}
+
+/* --- MODAL --- */
+.modal { 
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+    display: flex; justify-content: center; align-items: center; z-index: 9999; 
+}
+
+.modal-backdrop { 
+    position: absolute; width: 100%; height: 100%; 
+    background: rgba(0,0,0,0.85); backdrop-filter: blur(5px); 
+}
+
+.modal-content { 
+    position: relative; background: white; padding: 35px; 
+    border-radius: 25px; text-align: center; width: 85%; 
+    max-width: 350px; animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+
+@keyframes modalPop { from { transform: scale(0.7); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+.modal-icon { font-size: 3.5rem; margin-bottom: 10px; }
+.modal-title { color: var(--primary); font-size: 1.4rem; margin-bottom: 10px; }
+.modal-text { font-size: 1rem; color: #555; line-height: 1.5; margin-bottom: 25px; }
+.close-modal { 
+    background: var(--primary); color: white; border: none; 
+    padding: 10px 30px; border-radius: 50px; cursor: pointer; font-weight: 600; 
+}
+
+/* --- MUSIK VISUALIZER --- */
+.music-control { 
+    position: fixed; top: 20px; right: 20px; z-index: 1000; 
+    cursor: pointer; background: white; padding: 10px; 
+    border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+}
+
+.music-visualizer { display: flex; align-items: flex-end; gap: 3px; height: 18px; }
+
+.music-visualizer span { 
+    width: 3px; 
+    background: var(--primary); 
+    animation: bounce 0.5s infinite alternate; 
+}
+
+@keyframes bounce { from { height: 4px; } to { height: 18px; } }
+
+/* --- INTERACTION --- */
+#sayLoveBtn { 
+    display: block; 
+    margin: 40px auto; 
+    background: var(--primary); 
+    color: white; 
+    border: none; 
+    padding: 15px 40px; 
+    border-radius: 50px; 
+    cursor: pointer; 
+    font-weight: 600; 
+}

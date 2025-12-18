@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Journey ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <audio id="mySong" loop>
+        <source src="Nadhif Basalamah - kota ini tak sama tanpamu (Official Lyric Video).mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="musicToggle" class="music-control hidden">
+        <div class="music-visualizer">
+            <span></span><span></span><span></span><span></span>
+        </div>
+    </div>
+
+    <section id="opening">
+        <div class="gift-wrapper">
+            <div class="gift-box" id="giftBox">
+                <div class="gift-lid"></div>
+                <div class="gift-body">
+                    <div class="ribbon-v"></div>
+                    <div class="ribbon-h"></div>
+                </div>
+            </div>
+            <p class="instruction">Ada sesuatu untukmu, buka ya ❤️</p>
+        </div>
+    </section>
+
+    <section id="mainPage" class="hidden">
+        <header class="hero">
+            <h1 class="animate-text">Happy Anniversary</h1>
+            <h2 class="couple-names">Sayang</h2>
+            <h2 class="couple-names">🤍DOUBLE "S"🤍</h2>
+            <div class="divider"></div>
+            <p class="anniversary-date">Terhitung sejak 19 Desember 2023</p>
+        </header>
+
+        <main class="content">
+            <section class="message-box">
+                <p id="typingText"></p>
+            </section>
+
+            <section class="countdown-wrapper">
+                <h3 class="countdown-label">Menuju Tahun Berikutnya</h3>
+                <div id="countdown">
+                    <div class="time-unit"><span id="days">00</span><p>Hari</p></div>
+                    <div class="time-unit"><span id="hours">00</span><p>Jam</p></div>
+                    <div class="time-unit"><span id="minutes">00</span><p>Menit</p></div>
+                    <div class="time-unit"><span id="seconds">00</span><p>Detik</p></div>
+                </div>
+            </section>
+
+            <section class="gallery-container">
+                <h3 class="gallery-title">Momen Berharga Kita</h3>
+                <p style="font-size: 0.8rem; color: #888; margin-bottom: 20px;">(Klik fotonya untuk melihat yang lain ❤️)</p>
+                <div class="photo-stack" id="photoStack">
+                    </div>
+            </section>
+
+            <div class="interaction">
+                <button id="sayLoveBtn">Aku Sayang Kamu ❤️</button>
+            </div>
+        </main>
+    </section>
+
+    <div id="loveModal" class="modal hidden">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="modal-icon">❤️</div>
+            <h2 class="modal-title">Hanya Untukmu</h2>
+            <p id="randomLoveMessage" class="modal-text"></p>
+            <button class="close-modal">Tutup</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
